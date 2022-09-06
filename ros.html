@@ -30,19 +30,10 @@ ros.on('close', function() {
 var cmdVel = new ROSLIB.Topic({
     ros : ros,
     name : '/cmd_vel',
-    messageType : 'geometry_msgs/Twist'
+    messageType : 'std_msgs/String'
 })
 var twist = new ROSLIB.Message({
-    linear : {
-        x : 0.5,
-        y : 0.0,
-        z : 0.0
-    },
-    angular : {
-        x : 0.0,
-        y : 0.0,
-        z : 0.5
-    }
+    'data': 'Hello World!'
 })
 cmdVel.publish(twist)
     </script>
