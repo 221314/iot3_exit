@@ -128,6 +128,7 @@ class MainWindow(QMainWindow,form_main):
         self.pushButton_3.clicked.connect(self.buttonClicked3)
         #quit 버튼(창닫기)
         self.pushButton_4.clicked.connect(QCoreApplication.instance().quit)
+        self.pushButton_5.clicked.connect(self.defaultPic)  #디폴트 화면으로 돌아가기
 
     def defaultPic(self):
         img = QPixmap("3.jpg") #디폴트 대기화면
