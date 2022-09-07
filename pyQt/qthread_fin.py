@@ -131,7 +131,7 @@ class MainWindow(QMainWindow,form_main):
         self.pushButton_5.clicked.connect(self.defaultPic)  #디폴트 화면으로 돌아가기
 
     def defaultPic(self):
-        img = QPixmap("3.jpg") #디폴트 대기화면
+        img = QPixmap("21.gif") #디폴트 대기화면
         self.pic_label.setPixmap(QPixmap(img))
 
     def buttonClicked(self): #심폐소생술
