@@ -1,0 +1,78 @@
+html { 
+    scroll-behavior: smooth; /*링크이동시 스크롤 애니메이션*/
+  } 
+
+nav {
+    list-style-type: none;
+    background-color: #fff;
+    list-style-type: none; /*목록에 불릿이 나타나지 않게 설정*/
+    width: 15%;
+    padding: 0;
+    margin:  0;
+    position: fixed; /*위치 고정 (스크롤 내려도)*/
+    height: 100%;
+    overflow: auto;
+    border-radius : 10px
+}
+
+li { border-bottom: solid 1px #aaa; } /*경계선을 표현*/
+
+li a {
+    text-decoration: none;
+    display: block;
+    color: #000;
+    padding: 8px 15px 8px 15px;
+    font-weight: bold;
+}
+
+li a:hover{
+    background-color: #668EFD;
+    color:white;
+}
+
+nav ul {display:none;}
+nav li:hover > ul { /*주 메뉴에 마우스 오버했을 때 부 메뉴 표시하기*/
+    display:block;
+    list-style-type: none; /*목록에 불릿이 나타나지 않게 설정*/
+    color : #7F7F7F 
+}
+
+.main_banner {
+    width: 100%;
+    height: 500px;
+    background: url(1.jpg)no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+h1 a{
+    color : #fff
+}
+
+.banner_box>h1 {
+    width: 100%;
+    text-align: center;
+    font-family: '';
+    font-size: 40px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 50px;
+}
+
+/* https://www.codingfactory.net/10957 */
+.profile {
+    width: 100%;
+    height: 100%;
+    background-color: #7D9FFD;
+    background-size: cover;
+    position: relative;
+}
+
+.skill {
+    width: 100%;
+    height: 100%;
+    border-radius: 40px 80px;
+    background-color: #668EFD;
+    background-size: cover;
+    position: relative;
+}

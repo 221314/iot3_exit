@@ -1,0 +1,129 @@
+<html> 
+    <html lang="ko">
+<head> 
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://static.robotwebtools.org/roslibjs/current/roslib.min.js">
+	</script>
+</head> 
+
+<body> 
+    <h1>ROSDS의 안녕하세요!</h1> 
+
+    <p>첫 번째 웹페이지에서 rosbridge와 소통하세요.</p> 
+
+
+    <script type="text/javascript">
+        //code
+        var ros = new ROSLIB.Ros({ 
+    url : 'ws://192.168.137.246:9090' 
+});
+ros.on('connection', function() {
+    console.log('Connected to websocket server.');
+});
+
+ros.on('error', function(error) {
+    console.log('Error connecting to websocket server: ', error);
+});
+
+ros.on('close', function() {
+    console.log('Connection to websocket server closed.');
+});
+
+var goal = new ROSLIB.Topic({
+    ros : ros,
+    name : '/move_base/goal', // /cmd_vel
+    messageType : 'move_base_msgs/MoveBaseGoal' // 'geometry_msgs/Twist'
+})
+
+
+var moveBaseGoal = new ROSLIB.Message({
+    goal: {
+        target_pose: {
+            header: {
+                frame_id : "map"
+            },
+            pose: {
+                position: {
+                    x : 4.3,
+                    y : -0.2,
+                    z : 0.0
+                },
+                orientation: {
+                    x : 0.0,
+                    y : 0.0,
+                    z :0.0,
+                    w : 1.0
+                }
+            }
+        }
+    }
+})
+
+goal.publish(moveBaseGoal)
+
+//////////////////////////////////////////////////////////////
+
+// switch (user_choice) {
+//       case 1:
+//         // cout << "\nGoal Location: Bathroom\n" << endl;
+//         // goal.target_pose.pose.position.x = 4.3;
+//     	// goal.target_pose.pose.position.y = -0.2;
+//         // goal.target_pose.pose.orientation.w = 1.0;
+//         var twist = new ROSLIB.Message({
+//             linear : {
+//                 x : 0.5,
+//                 y : 0.0,
+//                 z : 0.0
+//                 },
+//             angular : {
+//                 x : 0.0,
+//                 y : 0.0,
+//                 z : 0.5
+//     }
+// })
+//     break;
+//       case 2:
+//         // cout << "\nGoal Location: Bedroom\n" << endl;
+//         // goal.target_pose.pose.position.x = 4.3;
+//     	// goal.target_pose.pose.position.y = -0.2;
+//         // goal.target_pose.pose.orientation.w = 1.0;
+//         // break;
+//         var twist = new ROSLIB.Message({
+//             linear : {
+//                 x : 4.3,
+//                 y : 0.2,
+//                 z : 1.0
+//                 },
+//             angular : {
+//                 x : 0.0,
+//                 y : 0.0,
+//                 z : 0.5
+//     }
+// })
+//     break;
+
+//         default:
+//         cout << "\nInvalid selection. Please try again.\n" << endl;
+//         valid_selection = false;
+//     }   
+
+// ///////////
+
+// ros.on('close', function() {
+//     console.log('Connection to websocket server closed.');
+// });
+
+// var cmdVel = new ROSLIB.Topic({
+//     ros : ros,
+//     name : '/cmd_vel',
+//     messageType : 'std_msgs/String'
+// })
+// var twist = new ROSLIB.Message({
+//     'data': 'Hello World!'
+// })
+// cmdVel.publish(twist)
+
+    </script>
+</body> 
+
+</html>
